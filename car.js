@@ -41,6 +41,11 @@ class Car {
 			this.speed += this.friction;
 		}
 
+		if (Math.abs(this.speed) < this.friction) {
+			// bug fix #1
+			this.speed = 0;
+		}
+
 		this.y -= this.speed;
 	}
 
