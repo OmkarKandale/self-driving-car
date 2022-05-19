@@ -26,7 +26,7 @@ class Car {
 			this.damaged = this.#accessDamage(roadBorders, traffic);
 		}
 		if (this.sensor) {
-			this.sensor.update(roadBorders);
+			this.sensor.update(roadBorders, traffic);
 		}
 	}
 
