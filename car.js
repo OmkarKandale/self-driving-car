@@ -12,7 +12,10 @@ class Car {
 		this.angle = 0; // bug fix #2
 		this.damaged = false;
 
-		this.sensor = new Sensor(this);
+		if (controlType != "DUMMY") {
+			//bug fix #12
+			this.sensor = new Sensor(this);
+		}
 		this.controls = new Controls(controlType); //bug fix #9
 	}
 
@@ -22,7 +25,9 @@ class Car {
 			this.polygon = this.#createPolygon();
 			this.damaged = this.#accessDamage(roadBorders);
 		}
-		this.sensor.update(roadBorders);
+		if (this.sensor) {
+			this.sensor.update(roadBorders);
+		}
 	}
 
 	#accessDamage(roadBorders) {
@@ -119,6 +124,8 @@ class Car {
 		}
 		ctx.fill();
 
-		this.sensor.draw(ctx);
+		if (this.sensor) {
+			this.sensor.draw(ctx);
+		}
 	}
 }
