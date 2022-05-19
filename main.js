@@ -13,9 +13,9 @@ animate();
 
 function animate() {
 	for (let i = 0; i < traffic.length; i++) {
-		traffic[i].update(road.borders);
+		traffic[i].update(road.borders, []);
 	}
-	car.update(road.borders);
+	car.update(road.borders, traffic); // bug fix #11
 
 	canvas.height = window.innerHeight;
 
