@@ -34,7 +34,7 @@ class Sensor {
 			}
 		}
 
-		for (leti = 0; i < traffic.length; i++) {
+		for (let i = 0; i < traffic.length; i++) {
 			const poly = traffic[i].polygon;
 			for (let j = 0; j < poly.length; j++) {
 				const value = getIntersection(
